@@ -1,5 +1,10 @@
 # SNCF Api
 
+[![Build Status](https://travis-ci.com/matthew73210/sncf_api.svg?branch=master)](https://travis-ci.com/matthew73210/sncf_api)
+
+[![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/matthew73210/sncf_api/?ref=repository-badge)
+
+[![CodeFactor](https://www.codefactor.io/repository/github/matthew73210/sncf_api/badge)](https://www.codefactor.io/repository/github/matthew73210/sncf_api)
 
 A class of methods that can call the different SNCF API's from [SNCF Open Data](https://data.sncf.com/), returns data as a [Pandas](https://pandas.pydata.org/) dataframe or .json() object.
 
