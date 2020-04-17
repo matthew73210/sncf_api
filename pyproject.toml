@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "sncf_api"
+version = "0.0.1"
+description = "A class of functions that can call the different SNCF API's from https://data.sncf.com/, returns data as pandas dataframe or .json() object. Dev"
+authors = ["Matthew Burton <matthewmaxwellburton@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/python-poetry/poetry/blob/master/pyproject.toml"
+keywords = ["python", "SNCF", "poetry"]
+
+
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^1.0.3"
+requests = "^2.23.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
