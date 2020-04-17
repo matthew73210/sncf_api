@@ -3,7 +3,6 @@
 import pandas as pd
 import requests
 
-#TODO
 #Add other API methods like list lines...
 #Add grofilter ? Some api calls are too large
 
@@ -147,4 +146,5 @@ class sncf_api:
         
         print('Api not up or internet down')
         self.db_json = 0
-        return self.db_json        
+        return self.db_json
+          
