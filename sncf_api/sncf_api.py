@@ -7,7 +7,8 @@ import requests
 class sncf_api:
     """
     summary:
-        A class of methods that grabs data from the sncf api and returns a clipped version as either a
+        A class of methods that grabs data from the
+        sncf api and returns a clipped version as either a
         dict or a pandas dataframe
         
     Parameters:
@@ -92,7 +93,8 @@ class sncf_api:
     def list_construction_site(self):
         """
         Summary:
-            Grabs constructions sites for given line. Will return whole database if no line is called.
+            Grabs constructions sites for given line.
+            Will return whole database if no line is called.
             
         Usage:
             db = objectclass.list_construction_site()
