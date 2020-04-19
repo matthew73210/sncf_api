@@ -3,6 +3,7 @@
 import pandas as pd
 import requests
 
+
 class sncf_api:
     """
     summary:
