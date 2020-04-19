@@ -10,25 +10,17 @@ class sncf_api:
         A class of methods that grabs data from the
         sncf api and returns a clipped version as either a
         dict or a pandas dataframe
-        
     Parameters:
         The class can be called with a rail line code or not.
-        
     Usage:
         objectclass = sncf(xxxxxx) -- xxxxxx = codeline
         db = objectclass.method() or objectclass.method()
-
     Methods: [Method name] -- [Returns] -- [Usage]
         test() -- prints all self.veriables -- Check if class had been properly imported
-        
         check_site() -- True / False -- Check if API is up
-        
         list_construction_site() -- dict -- Lists construction sites for given line
-        
         convert_to_pandas_db() -- pandas DataFrame -- Convert dict to pandas DataFrame
-        
         list_line_status() -- dict -- Lists all lines by status
-        
         list_line_type() -- dict -- Lists all lines by type
     """
     
@@ -92,10 +84,8 @@ class sncf_api:
         Summary:
             Grabs constructions sites for given line.
             Will return whole database if no line is called.
-            
         Usage:
             db = objectclass.list_construction_site()
-        
         Returns: [type] -- [description]
             object -- dict of construction site for given line
         """
