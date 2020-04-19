@@ -12,15 +12,15 @@ That Pandas dataframe has some elements clipped.
 
 Some of the calls can be huge, as SNCF has put a lot of data up. Some calls may even max out the api interface. **list line** by type is an example.
 
-## TODO
+## Requirements
 
-- Add other APIs
-- Finish README
-- Add Badges
+- Pandas
+- Requests
+- Python 3.8
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install.
 
 ```bash
 NOT ON PYPI YET
@@ -28,9 +28,40 @@ NOT ON PYPI YET
 
 ## Usage
 
+Import the class.
+
 ```python
-NOT ON PYPI YET
+import sncf_api as sncf
 ```
+
+Call the class (with or without the line code).
+
+```python
+sncf = sncf(903000)
+```
+
+Or
+
+```python
+sncf = sncf()
+```
+
+Call methods.
+
+```python
+db = sncf.list_construction_site()
+```
+
+To get a list of functions
+
+```python
+help(sncf)
+```
+
+## Notes
+
+Methods don't need to be called with arguments, only the class.
+The **convert_to_pandas_db()** method with used the data from the last method called and return a pandas dataframe.
 
 ## Contributing
 

@@ -3,15 +3,28 @@
 import pandas as pd
 import requests
 
-#Add other API methods like list lines...
-#Add grofilter ? Some api calls are too large
-
 
 class sncf_api:
-    
+    """
+    summary:
+        A class of methods that grabs data from the
+        sncf api and returns a clipped version as either a
+        dict or a pandas dataframe
+    Parameters:
+        The class can be called with a rail line code or not.
+    Usage:
+        objectclass = sncf(xxxxxx) -- xxxxxx = codeline
+        db = objectclass.method() or objectclass.method()
+    Methods: [Method name] -- [Returns] -- [Usage]
+        test() -- prints all self.veriables -- Check if class had been properly imported
+        check_site() -- True / False -- Check if API is up
+        list_construction_site() -- dict -- Lists construction sites for given line
+        convert_to_pandas_db() -- pandas DataFrame -- Convert dict to pandas DataFrame
+        list_line_status() -- dict -- Lists all lines by status
+        list_line_type() -- dict -- Lists all lines by type
+    """
     
     def __init__(self, line = ''):
-        
         #define veriables used in API call
         self.url_base = 'https://data.sncf.com/' #url base for sncf data
         self.code_line = line #sncf line each have a code, can be used to search through them
@@ -21,7 +34,18 @@ class sncf_api:
             print('Not adding argument will make methods request whole databasses')
                
     def test(self):
-        #check methode is reachable
+        """
+        Summary:
+            Method used to check if class has been called and variables are printable.
+            Can be used anytime time print variables.
+        Usage:
+            objectclass.test()
+        Returns: [type] -- [description]
+            print(url_base) -- base url used in class
+            print(code_line) -- Line code used by class
+            print(db_json) -- dict used by methods to pass data
+            print(enable) -- bool used to enable methods
+        """
         try:
             print('Class can run and methode is reachable, printing all variables')
             print(self.url_base)
@@ -33,7 +57,14 @@ class sncf_api:
             return False
     
     def check_site(self):
-        #Check if data.sncf is up
+        """
+        Summary:
+            Method used to check api status
+        Usage:
+            objectclass.check_site()
+        Returns: [type] -- [description]
+            bool -- True / False depending if api is up. Updates self.enable
+        """
         try:
             req = requests.get(self.url_base)
 
@@ -49,8 +80,16 @@ class sncf_api:
             return False
   
     def list_construction_site(self):
+        """
+        Summary:
+            Grabs constructions sites for given line.
+            Will return whole database if no line is called.
+        Usage:
+            db = objectclass.list_construction_site()
+        Returns: [type] -- [description]
+            object -- dict of construction site for given line
+        """
         self.check_site()
-        #need to add check if line exists. If nhits = 0 no line
         if self.enable == 1:
             try:
                 url_sncf_1 = 'https://data.sncf.com/api/records/1.0/search/?dataset=liste-des-chantiers&rows=0&facet=code_ligne&refine.code_ligne='
@@ -74,8 +113,17 @@ class sncf_api:
         return False
     
     def convert_to_pandas_db(self):
-        #takes db_json from self
-        
+        """
+        Summary:
+            Grabs data from prior method and returns a pandas dataframe
+        Usage:
+            Call method that need to be returned as pandas dataframe:
+                objectclass.list_construction_site()
+            Call method without arguments:
+                db_pandas = objectclass.convert_to_pandas_db()
+        Returns: [type] -- [description]
+            object -- pandas dataframe
+        """
         if self.db_json == 0:
             print('Function cant run because db = 0 and convert_to_pandas_db needs a .json object')
             return False
@@ -96,9 +144,15 @@ class sncf_api:
             return 0
         
     def list_line_status(self):
-        #https://data.sncf.com/api/records/1.0/search/?dataset=lignes-par-statut&rows=0&facet=statut
+        """
+        Summary:
+            Grabs lines by status
+        Usage:
+            db = objectclass.list_line_status()
+        Returns: [type] -- [description]
+            object -- dict of lines by status
+        """
         self.check_site()
-        #need to add check if line exists. If nhits = 0 no line
         if self.enable == 1:
             try:
                 url_sncf_1 = 'https://data.sncf.com/api/records/1.0/search/?dataset=lignes-par-statut&rows=0&facet=statut'
@@ -122,10 +176,16 @@ class sncf_api:
         return self.db_json
         
     def list_line_type(self):
-        #https://data.sncf.com/api/records/1.0/search/?dataset=lignes-par-type&rows=10&facet=type_ligne
+        """
+        Summary:
+            Grabs lines by type. Can max out the api calls, data can be clipped
+        Usage:
+            db = objectclass.list_line_type()
+        Returns: [type] -- [description]
+            object -- dict of lines by type
+        """
         print('This function maxes out the API, so not all hits can be called')
         self.check_site()
-        #need to add check if line exists. If nhits = 0 no line
         if self.enable == 1:
             try:
                 url_sncf_1 = 'https://data.sncf.com/api/records/1.0/search/?dataset=lignes-par-type&rows=0&facet=type_ligne'
@@ -147,4 +207,3 @@ class sncf_api:
         print('Api not up or internet down')
         self.db_json = 0
         return self.db_json
-          
