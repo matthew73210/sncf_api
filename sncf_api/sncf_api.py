@@ -30,11 +30,9 @@ class sncf_api:
         list_line_status() -- dict -- Lists all lines by status
         
         list_line_type() -- dict -- Lists all lines by type
-    """    
-    
+    """
     
     def __init__(self, line = ''):
-        
         #define veriables used in API call
         self.url_base = 'https://data.sncf.com/' #url base for sncf data
         self.code_line = line #sncf line each have a code, can be used to search through them
@@ -46,17 +44,16 @@ class sncf_api:
     def test(self):
         """
         Summary:
-            Method used to check if class has been called and variables are printable. 
+            Method used to check if class has been called and variables are printable.
             Can be used anytime time print variables.
-            
-        Usage: 
+        Usage:
             objectclass.test()
         Returns: [type] -- [description]
             print(url_base) -- base url used in class
             print(code_line) -- Line code used by class
             print(db_json) -- dict used by methods to pass data
-            print(enable) -- bool used to enable methods    
-        """        
+            print(enable) -- bool used to enable methods  
+        """
         try:
             print('Class can run and methode is reachable, printing all variables')
             print(self.url_base)
@@ -75,7 +72,7 @@ class sncf_api:
             objectclass.check_site()
         Returns: [type] -- [description]
             bool -- True / False depending if api is up. Updates self.enable
-        """        
+        """
         try:
             req = requests.get(self.url_base)
 
@@ -101,8 +98,7 @@ class sncf_api:
         
         Returns: [type] -- [description]
             object -- dict of construction site for given line
-            
-        """        
+        """
         self.check_site()
         if self.enable == 1:
             try:
@@ -130,18 +126,14 @@ class sncf_api:
         """
         Summary:
             Grabs data from prior method and returns a pandas dataframe
-            
         Usage:
             Call method that need to be returned as pandas dataframe:
                 objectclass.list_construction_site()
             Call method without arguments:
                 db_pandas = objectclass.convert_to_pandas_db()
-        
         Returns: [type] -- [description]
             object -- pandas dataframe
-            
         """
-        
         if self.db_json == 0:
             print('Function cant run because db = 0 and convert_to_pandas_db needs a .json object')
             return False
@@ -165,13 +157,11 @@ class sncf_api:
         """
         Summary:
             Grabs lines by status
-        
         Usage:
             db = objectclass.list_line_status()
-        
         Returns: [type] -- [description]
             object -- dict of lines by status
-        """        
+        """
         self.check_site()
         if self.enable == 1:
             try:
@@ -199,10 +189,8 @@ class sncf_api:
         """
         Summary:
             Grabs lines by type. Can max out the api calls, data can be clipped
-        
         Usage:
             db = objectclass.list_line_type()
-        
         Returns: [type] -- [description]
             object -- dict of lines by type
         """
@@ -229,4 +217,3 @@ class sncf_api:
         print('Api not up or internet down')
         self.db_json = 0
         return self.db_json
-          
