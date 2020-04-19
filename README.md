@@ -52,7 +52,7 @@ Call methods.
 db = sncf.list_construction_site()
 ```
 
-To get a list of functions
+To get a list of methods from class.
 
 ```python
 help(sncf)
