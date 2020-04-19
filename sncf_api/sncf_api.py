@@ -44,7 +44,7 @@ class sncf_api:
             print(url_base) -- base url used in class
             print(code_line) -- Line code used by class
             print(db_json) -- dict used by methods to pass data
-            print(enable) -- bool used to enable methods  
+            print(enable) -- bool used to enable methods
         """
         try:
             print('Class can run and methode is reachable, printing all variables')
