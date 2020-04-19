@@ -17,8 +17,10 @@
 
 #d = test.convert_to_pandas_db()
 
+#help(sncf)
 
 #print(a)
 #print(b)
 #print(c)
+
 #print(d)
