@@ -5,7 +5,7 @@ description = "A class of functions that can call the different SNCF API's from 
 authors = ["Matthew Burton <matthewmaxwellburton@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/python-poetry/poetry/blob/master/pyproject.toml"
+repository = "https://github.com/matthew73210/sncf_api"
 keywords = ["python", "SNCF", "poetry"]
 
 
