@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sncf_api"
-version = "0.1.0"
+version = "0.1.1"
 description = "A class of functions that can call the different SNCF API's from https://data.sncf.com/, returns data as pandas dataframe or .json() object."
 authors = ["Matthew Burton <matthewmaxwellburton@gmail.com>"]
 license = "MIT"
