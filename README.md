@@ -23,7 +23,7 @@ Some of the calls can be huge, as SNCF has put a lot of data up. Some calls may 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install.
 
 ```bash
-NOT ON PYPI YET
+pip install sncf-api
 ```
 
 ## Usage
